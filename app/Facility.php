@@ -38,6 +38,10 @@ class Facility extends Model
     public function sub_county(){
 
         return $this->belongsTo(Subcounty::class,'subcounty');
+    }
 
+    public function users(){
+
+        return $this->hasMany(User::class,'facility_id');
     }
 }
