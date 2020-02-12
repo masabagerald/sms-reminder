@@ -58,3 +58,5 @@ class sendReminders extends Command
                 $user->notify(new AppointmentReminder);
             }
         }
+    }
+}
