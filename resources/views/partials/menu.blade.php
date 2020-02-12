@@ -149,6 +149,18 @@
                                     </a>
                                 </li>
                             @endcan
+                            @can('subcounty_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.subcounties.index") }}" class="nav-link {{ request()->is('admin/visit-type') || request()->is('admin/visit-type/*') ? 'active' : '' }}">
+                                        <i class="fa-fw fas fa-money-bill">
+
+                                        </i>
+                                        <p>
+                                            <span>Subcounties</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
                             @can('currency_access')
                                 <li class="nav-item">
                                     <a href="{{ route("admin.currencies.index") }}" class="nav-link {{ request()->is('admin/currencies') || request()->is('admin/currencies/*') ? 'active' : '' }}">

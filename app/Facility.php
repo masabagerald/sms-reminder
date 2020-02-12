@@ -34,4 +34,10 @@ class Facility extends Model
     {
         return $this->hasMany(HealthWorker::class, 'facility_id', 'id');
     }
+
+    public function sub_county(){
+
+        return $this->belongsTo(Subcounty::class,'subcounty');
+
+    }
 }

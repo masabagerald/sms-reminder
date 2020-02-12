@@ -90,6 +90,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('appointments/destroy', 'AppointmentController@massDestroy')->name('appointments.massDestroy');
     Route::resource('appointments', 'AppointmentController');
 
+    //Appointments
+    Route::delete('subcounties/destroy', 'SubcountyController@massDestroy')->name('subcounties.massDestroy');
+    Route::resource('subcounties', 'SubcountyController');
+
 });
 
 

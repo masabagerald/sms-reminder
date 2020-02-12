@@ -468,6 +468,18 @@ return [
 
             ],
     ],
+    'subcounty'       => [
+        'title'          => 'subcounties',
+        'title_singular' => 'subcounty',
+        'fields'         => [
+            'id'                  => 'ID',
+            'name'           => 'Subcounty Name',
+            'county'         => 'County',
+
+
+
+        ],
+    ],
     'appointment'       => [
         'title'          => 'Appointments',
         'title_singular' => 'Appointment',
@@ -482,6 +494,7 @@ return [
 
         ],
 ],
+
 
 
 

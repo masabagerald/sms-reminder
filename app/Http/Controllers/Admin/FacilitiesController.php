@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyFacilityRequest;
 use App\Http\Requests\StoreFacilityRequest;
 use App\Http\Requests\UpdateFacilityRequest;
+use App\Subcounty;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,7 +27,9 @@ class FacilitiesController extends Controller
     {
         abort_if(Gate::denies('facility_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.facilities.create');
+        $subcounties = Subcounty::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('admin.facilities.create',compact('subcounties'));
     }
 
     public function store(StoreFacilityRequest $request)
@@ -40,7 +43,11 @@ class FacilitiesController extends Controller
     {
         abort_if(Gate::denies('facility_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.facilities.edit', compact('facility'));
+        $subcounties = Subcounty::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $facility->load('subcounty');
+
+        return view('admin.facilities.edit', compact('facility','subcounties'));
     }
 
     public function update(UpdateFacilityRequest $request, Facility $facility)

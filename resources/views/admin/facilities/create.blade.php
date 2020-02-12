@@ -49,13 +49,18 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.facility.fields.village_helper') }}</span>
             </div>
+
             <div class="form-group">
                 <label for="subcounty">{{ trans('cruds.facility.fields.subcounty') }}</label>
-                <input class="form-control {{ $errors->has('subcounty') ? 'is-invalid' : '' }}" type="text" name="subcounty" id="subcounty" value="{{ old('subcounty', '') }}">
+                <select class="form-control select2 {{ $errors->has('subcounty') ? 'is-invalid' : '' }}" name="subcounty" id="subcounty" required>
+                    @foreach($subcounties as $id => $subcounty)
+                        <option value="{{ $id }}" {{ old('subcounty') == $id ? 'selected' : '' }}>{{ $subcounty }}</option>
+                    @endforeach
+                </select>
                 @if($errors->has('subcounty'))
-                    <span class="text-danger">{{ $errors->first('subcounty') }}</span>
-                @endif
-                <span class="help-block">{{ trans('cruds.facility.fields.subcounty_helper') }}</span>
+                <span class="text-danger">{{ $errors->first('subcounty') }}</span>
+            @endif
+
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">
