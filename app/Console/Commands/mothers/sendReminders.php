@@ -48,7 +48,7 @@ class sendReminders extends Command
         if($appointments->count() > 0){
             foreach($appointments as $appointment){
 
-                $phonenumberlist = '256782701442,256778044758,256772761812';
+                $phonenumberlist = $appointment->mother->phone;
                 $message= 'Hello, you have a medical appointment tommorrow for your 2nd ANC Visit.Please try to come early';
 
                 SmsApi::sendSMS($phonenumberlist,$message);
@@ -58,5 +58,3 @@ class sendReminders extends Command
                 $user->notify(new AppointmentReminder);
             }
         }
-    }
-}

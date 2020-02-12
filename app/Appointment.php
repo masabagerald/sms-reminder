@@ -22,7 +22,7 @@ class Appointment extends Model
        return $this->belongsTo('App\VisitType','type');
     }
     public function mother(){
-        return $this->belongsTo('App\Mother');
+        return $this->belongsTo('App\Mother','mother_id');
     }
 
     public function setDateAttribute($value)
@@ -36,6 +36,8 @@ class Appointment extends Model
 
         return $value ? Carbon::parse($value)->format(config('panel.date_format')) : null;
     }
+
+
 
 
 
