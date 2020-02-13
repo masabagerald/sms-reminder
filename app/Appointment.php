@@ -41,4 +41,5 @@ class Appointment extends Model
 
 
 
+
 }

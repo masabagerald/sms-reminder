@@ -27,6 +27,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
 
         $schedule->command('mother:reminders')->everyMinute();
+        $schedule->command('midwife:reminder')->everyMinute();
     }
 
     /**

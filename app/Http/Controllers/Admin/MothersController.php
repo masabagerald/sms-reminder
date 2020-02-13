@@ -24,6 +24,8 @@ class MothersController extends Controller
     {
 
 
+
+
         abort_if(Gate::denies('mother_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $mothers = Mother::all();

@@ -78,6 +78,12 @@ class Mother extends Model
     }
 
 
+    public function facility(){
+
+        return $this->belongsTo('App\Facility');
+    }
+
+
 
 
 }
