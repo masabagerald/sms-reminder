@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Facility;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyUserRequest;
 use App\Http\Requests\StoreUserRequest;
@@ -28,8 +29,10 @@ class UsersController extends Controller
         abort_if(Gate::denies('user_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $roles = Role::all()->pluck('title', 'id');
+        $facilities = Facility::all()->pluck('name','id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.users.create', compact('roles'));
+
+        return view('admin.users.create', compact('roles','facilities'));
     }
 
     public function store(StoreUserRequest $request)
@@ -48,7 +51,13 @@ class UsersController extends Controller
 
         $user->load('roles');
 
-        return view('admin.users.edit', compact('roles', 'user'));
+        $facilities = Facility::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $user->load('facility');
+
+
+
+        return view('admin.users.edit', compact('roles', 'user','facilities'));
     }
 
     public function update(UpdateUserRequest $request, User $user)

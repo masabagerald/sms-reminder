@@ -46,6 +46,23 @@
                     {{ trans('cruds.user.fields.password_helper') }}
                 </p>
             </div>
+            <div class="form-group {{ $errors->has('facility_id') ? 'has-error' : '' }}">
+
+                <label for="facility_id">{{ trans('cruds.user.fields.facility') }}</label>
+
+                <select name="facility_id" id="facility_id" class="form-control select2"  required>
+
+                    @foreach($facilities  as $id => $facility)
+                        <option value="{{ $id }}" {{ old('facility_id') == $id ? 'selected' : '' }}>{{ $facility }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('facility_id'))
+                    <p class="help-block">
+                        {{ $errors->first('facility_id') }}
+                    </p>
+                @endif
+
+            </div>
             <div class="form-group {{ $errors->has('roles') ? 'has-error' : '' }}">
                 <label for="roles">{{ trans('cruds.user.fields.roles') }}*
                     <span class="btn btn-info btn-xs select-all">{{ trans('global.select_all') }}</span>

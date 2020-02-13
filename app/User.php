@@ -38,6 +38,8 @@ class User extends Authenticatable
         'deleted_at',
         'remember_token',
         'email_verified_at',
+        'facility_id',
+        'phone_no',
     ];
 
     public function getEmailVerifiedAtAttribute($value)
@@ -69,6 +71,6 @@ class User extends Authenticatable
 
     public function facility(){
 
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Facility::class);
     }
 }
