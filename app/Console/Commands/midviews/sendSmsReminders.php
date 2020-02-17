@@ -42,6 +42,21 @@ class sendSmsReminders extends Command
     {
         //
 
+       /*  $n =1;
+
+        switch($n){
+
+            case 2weeke:
+            break;
+            case 2 days:
+            break;
+            case today():
+
+            break;
+
+
+        } */
+
 
         $appointments= Appointment::where('date', Carbon::tomorrow())->get();
         if($appointments->count() > 0){
