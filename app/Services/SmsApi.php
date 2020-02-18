@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Facade\FlareClient\Http\Client;
 use GuzzleHttp\Client as GuzzleHttpClient;
+use phpDocumentor\Reflection\DocBlock\Tag;
 
 Class SmsApi
 {
@@ -13,7 +14,20 @@ Class SmsApi
 
 
 
-    public static function sendSMS($numbers,$message){
+    public static function sendSMS($numbers,$name,$date,$visit,$recepient=null){
+
+
+        if($recepient==null){
+            $message="Hello $name, you have a medical appointment on $date for your $visit.Please make sure you attend";
+
+        }else{
+
+            $message="Hello, $name is expected to have a medical appointment on $date for $visit.Please make sure you make a followup";
+
+        }
+
+
+
         $client = new GuzzleHttpClient();
 
         $response = [

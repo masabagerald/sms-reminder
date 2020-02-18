@@ -41,37 +41,20 @@ class sendSmsReminders extends Command
     public function handle()
     {
         //
-
-       /*  $n =1;
-
-        switch($n){
-
-            case 2weeke:
-            break;
-            case 2 days:
-            break;
-            case today():
-
-            break;
-
-
-        } */
-
-
-        $appointments= Appointment::where('date', Carbon::tomorrow())->get();
+       $appointments= Appointment::where('date', Carbon::today()->format('Y-m-d'))->get();
         if($appointments->count() > 0){
 
             foreach($appointments as $appointment){
 
                 //retures the mother in particular
 
-               $phone_nos = $appointment->mother->facility->users;
+               $midmwives= $appointment->mother->facility->users;
 
-               foreach($phone_nos as $phone){
+               foreach($midmwives as $midwife){
 
-                $message= 'Sara is scheduled for 2nd antenantal tommoro.Please get in touch with her to reminder for her appointment';
+               // $numbers,$name,$date,$visit,$recepient=null
 
-                SmsApi::sendSMS($phone,$message);
+                SmsApi::sendSMS($midwife->phone_no,$appointment->mother->name,$appointment->date,$appointment->visit_type->name,$recepient='midwife');
 
                }
 

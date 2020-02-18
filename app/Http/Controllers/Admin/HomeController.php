@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Appointment;
+use Carbon\Carbon;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
 class HomeController
@@ -9,6 +11,13 @@ class HomeController
 
     public function index()
     {
+
+        $appointments= Appointment::where('date', Carbon::today()->format('Y-m-d'))->get();
+        $phone_nos = $appointments[0]->mother->facility->users;
+        dd($phone_nos[0]->phone_no);
+
+
+
         $settings1 = [
             'chart_title'           => 'Mothers Registered this month',
             'chart_type'            => 'number_block',
