@@ -73,4 +73,12 @@ class User extends Authenticatable
 
         return $this->belongsTo(Facility::class);
     }
+
+    protected $appends = ['mobile'];
+
+    public function getMobileAttribute(){
+
+        return ($this->attributes['phone_no'][0] == "0")?substr_replace ($this->attributes['phone_no'], '256' , 0,1 ):$this->attributes['phone_no'];
+
+    }
 }

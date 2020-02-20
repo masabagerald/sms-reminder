@@ -83,6 +83,20 @@ class Mother extends Model
         return $this->belongsTo('App\Facility');
     }
 
+    protected $appends = ['mobile'];
+
+    public function getMobileAttribute(){
+
+        return ($this->attributes['phone'][0] == "0")?substr_replace ($this->attributes['phone'], '256' , 0,1 ):$this->attributes['phone'];
+
+    }
+
+
+
+
+
+
+
 
 
 

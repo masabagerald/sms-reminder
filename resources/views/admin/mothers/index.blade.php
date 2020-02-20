@@ -102,7 +102,7 @@
                                 {{ $mother->subcounty ?? '' }}
                             </td>
                             <td>
-                                {{ $mother->phone ?? '' }}
+                                {{ $mother->phone?? '' }}
                             </td>
                             <td>
                                 {{ $mother->anc_no ?? '' }}

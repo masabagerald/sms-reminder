@@ -12,10 +12,6 @@ class HomeController
     public function index()
     {
 
-        $appointments= Appointment::where('date', Carbon::today()->format('Y-m-d'))->get();
-        $phone_nos = $appointments[0]->mother->facility->users;
-        dd($phone_nos[0]->phone_no);
-
 
 
         $settings1 = [

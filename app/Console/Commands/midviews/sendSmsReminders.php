@@ -54,7 +54,7 @@ class sendSmsReminders extends Command
 
                // $numbers,$name,$date,$visit,$recepient=null
 
-                SmsApi::sendSMS($midwife->phone_no,$appointment->mother->name,$appointment->date,$appointment->visit_type->name,$recepient='midwife');
+                SmsApi::sendSMS($midwife->mobile,$appointment->mother->name,$appointment->date,$appointment->visit_type->name,$recepient='midwife');
 
                }
 

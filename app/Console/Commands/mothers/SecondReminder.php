@@ -47,7 +47,7 @@ class SecondReminder extends Command
         if($appointments->count() > 0){
             foreach($appointments as $appointment){
 
-                $phonenumberlist = $appointment->mother->phone;
+                $phonenumberlist = $appointment->mother->mobile;
 
                 SmsApi::sendSMS($phonenumberlist,$appointment->mother->name,$appointment->date,$appointment->visit_type->name);
 

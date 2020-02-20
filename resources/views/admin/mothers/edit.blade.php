@@ -65,7 +65,7 @@
             </div>
             <div class="form-group">
                 <label class="required" for="phone">{{ trans('cruds.mother.fields.phone') }}</label>
-                <input class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" type="text" name="phone" id="phone" value="{{ old('phone', $mother->phone) }}" required>
+                <input pattern="(07)[0-9]{8}" title="use the correct format for phone number" class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" type="text" name="phone" id="phone" value="{{ old('phone', $mother->phone) }}" required>
                 @if($errors->has('phone'))
                     <span class="text-danger">{{ $errors->first('phone') }}</span>
                 @endif
