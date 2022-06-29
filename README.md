@@ -3,9 +3,9 @@
 
 
 Features:
-- CRUDs for Clients, Projects, Notes, Documents and Transactions
-- Simple Report for Income per Month
-- CRUDs for Settings - Currencies, Transaction Types, Client/Project Statuses
+-- CRUDs for Settings -Mothers, Infants, Nurses ,Health facilities
+- Simple Report 
+- CRUDs for Settings -Mothers, Infants, Nurses ,Health facilities
 - Based on [AdminLTE 3 Free Theme](https://adminlte.io/themes/dev/AdminLTE/index.html) (Bootstrap 4)
 
 
